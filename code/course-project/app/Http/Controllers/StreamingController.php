@@ -9,15 +9,16 @@ use Illuminate\View\View;
 
 class StreamingController extends Controller
 {
-    function displayMovies():View
+    function displayContent(): View
     {
+        // Retrieve data for movies and shows
         $movies = Movie::all();
-        return \view('dashboard',['movies' => $movies]);
-    }
-
-    function displayShows():View
-    {
         $shows = Show::all();
-        return view('dashboard',['shows' => $shows]);
+
+        // Return the dashboard view with movies and shows data
+        return view('dashboard', [
+            'movies' => $movies,
+            'shows' => $shows,
+        ]);
     }
 }
