@@ -34,4 +34,9 @@ class StreamingController extends Controller
             'query' => $query,
         ]);
     }
+
+    function showMovie($id): View{
+        $movie = Movie::with(['actors','heroes'])->findOrFail($id);
+        return view('streaming.movie', ['movie' => $movie]);
+    }
 }

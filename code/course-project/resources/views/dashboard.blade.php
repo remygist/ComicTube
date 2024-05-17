@@ -11,7 +11,7 @@
             <!-- Start main content -->
             <div class="streamingContent">
                 @foreach($movies as $movie)
-                    <a href="#">
+                    <a href="{{ route('movie.show', $movie->id) }}">
                         <img src={{$movie->poster}}></a>
                 @endforeach
             <br>

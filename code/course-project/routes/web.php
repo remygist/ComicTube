@@ -26,4 +26,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/dashboard',[\App\Http\Controllers\StreamingController::class, 'displayContent'])->name('dashboard');
 Route::get('/search', [\App\Http\Controllers\StreamingController::class, 'searchContent'])->name('search');
+Route::get('/movie/{id}', [\App\Http\Controllers\StreamingController::class, 'showMovie'])->name('movie.show');
+Route::get('/show/{id}', [\App\Http\Controllers\StreamingController::class, 'showShow'])->name('show.show');
 

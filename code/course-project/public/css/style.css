@@ -17,3 +17,11 @@
     height: 300px;
     margin: 10px 20px 0px 0px;
 }
+
+.tabs-section{
+    margin-top: 40px;
+}
+
+.tabs button{
+    margin-right: 100px;
+}
