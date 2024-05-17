@@ -8,8 +8,8 @@
 
             <div class="tabs-section">
                 <div class="tabs">
-                    <button class="tablinks" onclick="openTab(event, 'overview')"><h2
-                            class="font-semibold text-xl text-gray-800 leading-tight">Overview</h2></button>
+                    <button class="tablinks" onclick="openTab(event, 'description')"><h2
+                            class="font-semibold text-xl text-gray-800 leading-tight">Description</h2></button>
                     <button class="tablinks" onclick="openTab(event, 'cast')"><h2
                             class="font-semibold text-xl text-gray-800 leading-tight">Cast</h2></button>
                     <button class="tablinks" onclick="openTab(event, 'heroes')"><h2
@@ -18,22 +18,29 @@
 
                 <hr>
 
-                <div id="overview" class="tabcontent" style="display: block;">
+                <div id="description" class="tabcontent" style="display: block;">
                     <p>{{ $movie->description }}</p>
                 </div>
 
                 <div id="cast" class="tabcontent" style="display: none;">
+
                     @foreach($movie->actors as $actor)
-                        <p>{{ $actor->name }}</p>
-                        <img src={{$actor->image}}>
+                        <div class="actors">
+                        <div>
+                        <img src={{$actor->image}}></div>
+                    <div><p>{{ $actor->name }}</p></div>
+                        </div>
                     @endforeach
+
                 </div>
 
                 <div id="heroes" class="tabcontent" style="display: none;">
                     @foreach($movie->heroes as $hero)
+                        <div>
                         <p>{{ $hero->name }}</p>
                     <p>{{$hero->originComics}}</p>
                         <img src={{$hero->comicImage}}>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -45,13 +52,22 @@
             let tabcontents = document.getElementsByClassName("tabcontent");
             for (let i = 0; i < tabcontents.length; i++) {
                 tabcontents[i].style.display = "none";
+                tabcontents[i].classList.remove("flex-container"); // Remove flex-container class if present
             }
             let tablinks = document.getElementsByClassName("tablinks");
             for (let i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
-            document.getElementById(tabName).style.display = "block";
+            let currentTab = document.getElementById(tabName);
+            if (tabName === 'cast' || tabName === 'heroes') {
+                currentTab.style.display = "flex";
+                currentTab.classList.add("flex-container");
+            } else {
+                currentTab.style.display = "block";
+            }
             evt.currentTarget.classList.add("active");
         }
     </script>
+
+
 </x-app-layout>
