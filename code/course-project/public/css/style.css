@@ -1,0 +1,19 @@
+.custom-button {
+    border: 2px solid black;
+    color: black;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+}
+
+.streamingContent{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.streamingContent img{
+    width: 200px;
+    max-width: 200px;
+    height: 300px;
+    margin: 10px 20px 0px 0px;
+}

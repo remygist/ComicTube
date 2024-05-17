@@ -1,13 +1,24 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @foreach($movies as $movie)
-                <h1 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{$movie->title}}
-                </h1>
-                <p>{{$movie->description}}</p>
+            <form action="{{route('search')}}">
+                <input type="text" name="query" placeholder="Search movie or show" value="{{request('query')}}">
+                <button type="submit" class="custom-button">
+                    Search
+                </button>
+            </form>
+            <br>
+            <!-- Start main content -->
+            <div class="streamingContent">
+                @foreach($movies as $movie)
+                    <a href="#">
+                        <img src={{$movie->poster}}></a>
+                @endforeach
+            <br>
+            @foreach($shows as $show)
 
             @endforeach
+            </div>
         </div>
     </div>
 </x-app-layout>

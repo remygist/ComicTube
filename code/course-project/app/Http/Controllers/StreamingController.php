@@ -21,4 +21,17 @@ class StreamingController extends Controller
             'shows' => $shows,
         ]);
     }
+
+    function searchContent(Request $request): View{
+        $query = $request->input('query');
+
+        $movies = Movie::where('title', 'like', '%' . $query . '%')->get();
+        $shows = Show::where('title', 'like', '%' . $query . '%')->get();
+
+        return view('dashboard', [
+            'movies' => $movies,
+            'shows' => $shows,
+            'query' => $query,
+        ]);
+    }
 }
