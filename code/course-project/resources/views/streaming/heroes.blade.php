@@ -12,7 +12,9 @@
             <div class="streamingContent">
                 @foreach($heroes as $hero)
                     <a href="{{ route('heroes.show', $hero->id) }}">
-                        <img src={{$hero->heroImage}}  alt="{{$hero->title}}"></a>
+                        <img src={{$hero->heroImage}}  alt="{{$hero->title}}">
+                        <p class="text-xl">{{$hero->name}}</p>
+                    </a>
                 @endforeach
             </div>
         </div>

@@ -62,3 +62,14 @@
     max-width: 200px;
     height: 300px;
 }
+
+.relatedMovies{
+    display: flex;
+}
+
+.movies img{
+    width: 200px;
+    max-width: 200px;
+    height: 300px;
+    margin-right: 20px;
+}
