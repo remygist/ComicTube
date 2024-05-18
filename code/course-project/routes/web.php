@@ -20,14 +20,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard',[\App\Http\Controllers\StreamingController::class, 'index'])->name('dashboard');
+    Route::get('/search', [\App\Http\Controllers\StreamingController::class, 'searchContent'])->name('search');
+    Route::get('/movies/{id}', [\App\Http\Controllers\StreamingController::class, 'showMovie'])->name('movies.show');
+    Route::get('/shows/{id}', [\App\Http\Controllers\StreamingController::class, 'showShow'])->name('shows.show');
+    Route::get('/movies', [\App\Http\Controllers\StreamingController::class, 'indexMovies'])->name('movies.index');
+    Route::get('/shows', [\App\Http\Controllers\StreamingController::class, 'indexShows'])->name('shows.index');
+    Route::get('/heroes',[\App\Http\Controllers\StreamingController::class, 'indexHeroes'])->name('heroes.index');
+    Route::get('/heroes/{id}',[\App\Http\Controllers\StreamingController::class,'showHero'])->name('heroes.show');
 });
 
 require __DIR__.'/auth.php';
 
-Route::get('/dashboard',[\App\Http\Controllers\StreamingController::class, 'index'])->name('dashboard');
-Route::get('/search', [\App\Http\Controllers\StreamingController::class, 'searchContent'])->name('search');
-Route::get('/movies/{id}', [\App\Http\Controllers\StreamingController::class, 'showMovie'])->name('movies.show');
-Route::get('/shows/{id}', [\App\Http\Controllers\StreamingController::class, 'showShow'])->name('shows.show');
-Route::get('/movies', [\App\Http\Controllers\StreamingController::class, 'indexMovies'])->name('movies.index');
-Route::get('/shows', [\App\Http\Controllers\StreamingController::class, 'indexShows']) ->name('shows.index');
+
 
