@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('heroes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('heroImage')->nullable();
             $table->string('originComics')->nullable();
             $table->string('comicImage')->nullable();
             $table->timestamps();
