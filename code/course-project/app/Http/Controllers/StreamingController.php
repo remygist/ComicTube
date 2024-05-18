@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hero;
 use App\Models\Movie;
 use App\Models\Show;
 use Illuminate\Http\Request;
@@ -61,6 +62,20 @@ class StreamingController extends Controller
         $show = Show::with(['actors','heroes'])->findOrFail($id);
         return view('streaming.show', ['show' => $show ]);
     }
+
+    function indexHeroes(): View
+    {
+        $heroes = Hero::all();
+        return view('streaming.heroes',[
+            'heroes' => $heroes
+        ]);
+    }
+
+    function showHero($id): View {
+        $hero = Hero::with(['movies'])->findOrFail($id); // Correctly retrieve the hero by ID
+        return view('streaming.hero', ['hero' => $hero]);
+    }
+
 
 
 }
