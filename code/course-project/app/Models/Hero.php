@@ -14,6 +14,6 @@ class Hero extends Model
 
     function shows()
     {
-        return $this->belongsToMany(Movie::class);
+        return $this->belongsToMany(Show::class);
     }
 }

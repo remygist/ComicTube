@@ -72,7 +72,7 @@ class StreamingController extends Controller
     }
 
     function showHero($id): View {
-        $hero = Hero::with(['movies'])->findOrFail($id); // Correctly retrieve the hero by ID
+        $hero = Hero::with(['movies', 'shows'])->findOrFail($id); // Correctly retrieve the hero by ID
         return view('streaming.hero', ['hero' => $hero]);
     }
 
