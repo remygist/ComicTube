@@ -37,7 +37,7 @@
                 <div id="heroes" class="tabcontent" style="display: none;">
                     @foreach($show->heroes as $hero)
                         <div class="hero">
-                            <p>{{ $hero->name }}</p>
+                            <p class="font-semibold">First appearance: {{ $hero->name }}</p>
                             <p>{{$hero->originComics}}</p>
                             <img src={{$hero->comicImage}}>
                         </div>

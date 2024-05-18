@@ -15,8 +15,8 @@
                     <button class="tablinks" onclick="openTab(event, 'heroes')"><h2
                             class="font-semibold text-xl text-gray-800 leading-tight">Heroes</h2></button>
                 </div>
-
                 <hr>
+
 
                 <div id="description" class="tabcontent" style="display: block;">
                     <p>{{ $movie->description }}</p>
@@ -37,8 +37,8 @@
                 <div id="heroes" class="tabcontent" style="display: none;">
                     @foreach($movie->heroes as $hero)
                         <div class="hero">
-                        <p>{{ $hero->name }}</p>
-                    <p>{{$hero->originComics}}</p>
+                        <p class="font-semibold">First appearance: {{ $hero->name }}</p>
+                    <p> {{$hero->originComics}}</p>
                         <img src={{$hero->comicImage}}>
                         </div>
                     @endforeach
