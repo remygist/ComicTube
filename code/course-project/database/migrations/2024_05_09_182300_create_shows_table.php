@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('seasons');
             $table->string('cast')->nullable();
             $table->string('poster')->nullable();
+            $table->string('videoUrl')->nullable();
             $table->timestamps();
         });
     }

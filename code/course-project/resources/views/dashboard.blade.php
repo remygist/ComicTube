@@ -11,12 +11,13 @@
             <!-- Start main content -->
             <div class="streamingContent">
                 @foreach($movies as $movie)
-                    <a href="{{ route('movie.show', $movie->id) }}">
+                    <a href="{{ route('movies.show', $movie->id) }}">
                         <img src={{$movie->poster}}></a>
                 @endforeach
             <br>
             @foreach($shows as $show)
-
+                        <a href="{{ route('shows.show', $show->id) }}">
+                            <img src={{$show->poster}}></a>
             @endforeach
             </div>
         </div>
