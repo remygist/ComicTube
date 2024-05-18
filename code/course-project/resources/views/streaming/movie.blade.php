@@ -36,7 +36,7 @@
 
                 <div id="heroes" class="tabcontent" style="display: none;">
                     @foreach($movie->heroes as $hero)
-                        <div>
+                        <div class="hero">
                         <p>{{ $hero->name }}</p>
                     <p>{{$hero->originComics}}</p>
                         <img src={{$hero->comicImage}}>

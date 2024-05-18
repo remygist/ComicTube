@@ -39,4 +39,26 @@ class StreamingController extends Controller
         $movie = Movie::with(['actors','heroes'])->findOrFail($id);
         return view('streaming.movie', ['movie' => $movie]);
     }
+
+    function indexMovies(): View
+    {
+        $movies = Movie::all();
+        return view('streaming.movies',[
+            'movies' => $movies
+        ]);
+    }
+
+    function indexShows(): View
+    {
+        $shows = Show::all();
+        return view('streaming.shows',[
+            'shows' => $shows
+        ]);
+    }
+
+    function showShow($id): View
+    {
+        $show = Movie::with(['actors','heroes'])->findOrFail($id);
+        return view('streaming.show', ['show' => $show ]);
+    }
 }
