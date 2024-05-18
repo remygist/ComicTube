@@ -35,3 +35,7 @@
 #heroes{
     display: flex;
 }
+
+.hero{
+    margin-right: 10px;
+}

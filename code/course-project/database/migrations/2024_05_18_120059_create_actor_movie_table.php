@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hero_movie', function (Blueprint $table) {
+        Schema::create('actor_movie', function (Blueprint $table) {
             $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->foreignId('hero_id')->constrained()->onDelete('cascade');
-            $table->primary(['movie_id', 'hero_id']);
+            $table->foreignId('actor_id')->constrained()->onDelete('cascade');
+            $table->primary(['movie_id', 'actor_id']);
         });
-
     }
 
     /**
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hero_movie');
+        Schema::dropIfExists('actor_movie');
     }
 };

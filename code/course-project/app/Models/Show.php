@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Show extends Model
 {
-    use HasFactory;
+    function actors()
+    {
+        return $this->belongsToMany(Actor::class);
+    }
+
+    function heroes()
+    {
+        return $this->belongsToMany(Hero::class);
+    }
 }

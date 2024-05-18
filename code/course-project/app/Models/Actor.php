@@ -9,6 +9,11 @@ class Actor extends Model
 {
     function movies()
     {
-        return $this->belongsToMany(Movie::class, 'cast');
+        return $this->belongsToMany(Movie::class);
+    }
+
+    function shows()
+    {
+        return $this->belongsToMany(Show::class);
     }
 }
