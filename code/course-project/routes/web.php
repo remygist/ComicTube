@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/dashboard',[\App\Http\Controllers\StreamingController::class, 'displayContent'])->name('dashboard');
+Route::get('/dashboard',[\App\Http\Controllers\StreamingController::class, 'index'])->name('dashboard');
 Route::get('/search', [\App\Http\Controllers\StreamingController::class, 'searchContent'])->name('search');
 Route::get('/movies/{id}', [\App\Http\Controllers\StreamingController::class, 'showMovie'])->name('movies.show');
 Route::get('/shows/{id}', [\App\Http\Controllers\StreamingController::class, 'showShow'])->name('shows.show');

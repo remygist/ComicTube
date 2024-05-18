@@ -9,7 +9,7 @@ use Illuminate\View\View;
 
 class StreamingController extends Controller
 {
-    function displayContent(): View
+    function index(): View
     {
         // Retrieve data for movies and shows
         $movies = Movie::all();
@@ -58,7 +58,9 @@ class StreamingController extends Controller
 
     function showShow($id): View
     {
-        $show = Movie::with(['actors','heroes'])->findOrFail($id);
+        $show = Show::with(['actors','heroes'])->findOrFail($id);
         return view('streaming.show', ['show' => $show ]);
     }
+
+
 }
